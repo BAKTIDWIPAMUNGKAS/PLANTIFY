@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Plantify — Plant Disease Identifier</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Plant<span>ify</span></a>
+    <ul class="nav-links">
+      <li><a href="#detector">Detector</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#diseases">Diseases</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#detector" class="btn-primary">Start Detection</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg-layer"></div>
+  <div class="hero-radial"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          AI-Powered Plant Diagnostics
+        </div>
+        <h1>Identify Plant<br><em>Diseases</em><br>Instantly</h1>
+        <p>Upload a photo of your plant and our advanced AI system will diagnose pests and diseases in seconds — with detailed treatment recommendations tailored for Indonesian agriculture.</p>
+        <div class="hero-cta">
+          <a href="#detector" class="btn-primary">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><circle cx="10" cy="10" r="7"/><path d="M10 7v3l2 2"/></svg>
+            Analyze My Plant
+          </a>
+          <a href="#how-it-works" class="btn-outline">How It Works</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item">
+            <strong>98%</strong>
+            <span>Accuracy Rate</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>50+</strong>
+            <span>Diseases Identified</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <strong>&lt;10s</strong>
+            <span>Analysis Time</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-main">
+          <img src="{{ url_for('static', filename='img/farmer.jpeg') }}" alt="Healthy plant" class="hero-plant-img"/>
+          <div class="hero-scan-line"></div>
+          <div class="hero-result-badge">
+            <div class="result-badge-dot"></div>
+            <div>
+              <strong>Analysis Complete</strong>
+              <span>Potato Leaf Rust — 90% confidence</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card-side">
+          <img src="{{ url_for('static', filename='img/hero.jpeg') }}" alt="Plant leaf"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURES STRIP ═══════════════════════════════════ -->
+<div class="features-strip">
+  <div class="container">
+    <div class="features-strip-grid">
+      <div class="fs-item">
+        <div class="fs-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div>
+          <strong>Smart Detection</strong>
+          <p>Vision AI trained on thousands of crop disease images</p>
+        </div>
+      </div>
+      <div class="fs-item">
+        <div class="fs-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M9 12h6M9 16h6M17 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <div>
+          <strong>Detailed Reports</strong>
+          <p>Severity level, pesticide dosage, and recovery steps</p>
+        </div>
+      </div>
+      <div class="fs-item">
+        <div class="fs-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <strong>Prevention Tips</strong>
+          <p>Proactive guidance to keep your crops healthy</p>
+        </div>
+      </div>
+      <div class="fs-item">
+        <div class="fs-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>Instant Results</strong>
+          <p>Full diagnosis delivered in under 10 seconds</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DETECTOR ══════════════════════════════════════════ -->
+<section class="detector" id="detector">
+  <div class="detector-bg"></div>
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">AI Detector</span>
+      <h2>Diagnose Your <em>Plant Now</em></h2>
+      <p>Upload a clear photo of the affected area. Our AI will identify the issue and provide a complete treatment plan.</p>
+    </div>
+
+    <div class="detector-grid">
+      <!-- LEFT: FORM -->
+      <div class="detector-form-panel glass-panel">
+        <div class="panel-step-label">
+          <span class="step-num">01</span>
+          <span class="step-text">Upload & Configure</span>
+        </div>
+
+        <form id="analyzeForm" enctype="multipart/form-data">
+
+          <!-- Drop zone -->
+          <input type="file" id="fileInput" name="image" accept="image/*" capture="environment" style="display:none"/>
+          <div class="drop-zone" id="uploadZone">
+            <div id="uploadUI" class="drop-ui">
+              <div class="drop-ring">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.4"/>
+                  <path d="M32 42V28M26 34l6-6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="20" y="44" width="24" height="2" rx="1" fill="currentColor" opacity="0.2"/>
+                </svg>
+              </div>
+              <p class="drop-title">Drop plant photo here</p>
+              <p class="drop-sub">JPG, PNG, WEBP — max 10MB</p>
+              <div class="drop-actions">
+                <button type="button" class="btn-sm-outline" onclick="document.getElementById('fileInput').click()">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><rect x="2" y="2" width="12" height="12" rx="2"/><circle cx="6" cy="6" r="1.2" fill="currentColor" stroke="none"/><path d="m14 11-3.5-3.5-2.5 2.5-1.5-1.5L3 11"/></svg>
+                  Choose File
+                </button>
+                <button type="button" class="btn-sm-outline" onclick="document.getElementById('fileInput').click()">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="13" height="13"><circle cx="8" cy="8" r="3"/><circle cx="8" cy="8" r="6" stroke-dasharray="2 2"/></svg>
+                  Camera
+                </button>
+              </div>
+            </div>
+            <div id="previewWrap" style="display:none;" class="preview-wrap">
+              <img id="imgPreview" alt="preview"/>
+              <div class="preview-toolbar">
+                <button type="button" id="changeBtn" class="btn-ghost-sm">
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M4 8h8M8 4l4 4-4 4"/></svg>
+                  Change Photo
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-field">
+            <label class="field-label">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="12" height="12"><path d="M13 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM5 6h6M5 9h4"/></svg>
+              Additional Notes
+              <span class="field-opt">optional</span>
+            </label>
+            <textarea name="notes" id="notes" placeholder="e.g. Chili plant, yellowing leaves, highland area West Java…"></textarea>
+          </div>
+
+          <button type="submit" id="analyzeBtn" class="btn-primary btn-full" disabled>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><circle cx="10" cy="10" r="7"/><path d="M7 10l2 2 4-4"/></svg>
+            Analyze Plant
+          </button>
+
+        </form>
+      </div>
+
+      <!-- RIGHT: RESULT -->
+      <div class="detector-result-panel glass-panel">
+        <div class="panel-step-label">
+          <span class="step-num">02</span>
+          <span class="step-text">Diagnosis Result</span>
+        </div>
+        <div id="output" class="output-zone">
+          <div class="output-idle">
+            <div class="idle-rings">
+              <div class="idle-ring r1"></div>
+              <div class="idle-ring r2"></div>
+              <div class="idle-ring r3"></div>
+              <div class="idle-core">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" width="28" height="28">
+                  <path d="M16 4C9.4 4 4 9.4 4 16s5.4 12 12 12 12-5.4 12-12S22.6 4 16 4z" opacity="0.3"/>
+                  <path d="M16 8c-4.4 0-8 3.6-8 8" stroke-linecap="round"/>
+                  <circle cx="16" cy="16" r="3" fill="currentColor" opacity="0.5"/>
+                </svg>
+              </div>
+            </div>
+            <p class="idle-title">Awaiting Analysis</p>
+            <p class="idle-sub">Upload a plant photo on the left and click Analyze to receive an AI-powered diagnosis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══════════════════════════════════════ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <div class="section-head center">
+      <span class="section-label">Process</span>
+      <h2>How It <em>Works</em></h2>
+      <p>Three simple steps to diagnose your plant and take action.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card" data-reveal>
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="28" height="28"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2.5"/><path d="m21 15-5-5-4 4-2-2-5 5"/></svg>
+        </div>
+        <h3>Upload Photo</h3>
+        <p>Take a clear photo of the affected leaves, stems, or fruits and upload it directly from your device or camera.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card" data-reveal>
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="28" height="28"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M16.24 7.76a6 6 0 1 1-8.49 8.49"/></svg>
+        </div>
+        <h3>AI Analysis</h3>
+        <p>Our computer vision model analyzes the image against a database of plant disease patterns with high precision.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card" data-reveal>
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" width="28" height="28"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Get Treatment</h3>
+        <p>Receive a full report with disease name, severity rating, pesticide recommendations, and prevention tips.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DISEASE LIBRARY ═══════════════════════════════════ -->
+<section class="diseases" id="diseases">
+  <div class="diseases-bg"></div>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-label">Disease Library</span>
+        <h2>Common Plant <em>Diseases</em><br>We Detect</h2>
+      </div>
+      <a href="#detector" class="btn-outline">Scan Your Plant</a>
+    </div>
+    <div class="disease-grid">
+      <div class="disease-card" data-reveal>
+        <div class="disease-img-wrap">
+          <img src="{{ url_for('static', filename='img/potato.jpg') }}" alt="Leaf rust"/>
+          <div class="disease-sev sev-high">High Risk</div>
+        </div>
+        <div class="disease-info">
+          <div class="disease-type">Fungal Disease</div>
+          <h4>Potato Leaf Rust</h4>
+          <p>Orange-brown pustules on leaf undersides causing premature defoliation and yield loss.</p>
+          <div class="disease-meta">
+            <span>Mancozeb 80%</span>
+            <span>2–3 applications</span>
+          </div>
+        </div>
+      </div>
+      <div class="disease-card" data-reveal>
+        <div class="disease-img-wrap">
+          <img src="{{ url_for('static', filename='img/tomato.jpeg') }}" alt="Blight"/>
+          <div class="disease-sev sev-med">Medium Risk</div>
+        </div>
+        <div class="disease-info">
+          <div class="disease-type">Bacterial Disease</div>
+          <h4>Tomato Blight</h4>
+          <p>Dark water-soaked lesions expanding rapidly under humid conditions, destroying foliage and fruit.</p>
+          <div class="disease-meta">
+            <span>Copper Oxychloride</span>
+            <span>Weekly spray</span>
+          </div>
+        </div>
+      </div>
+      <div class="disease-card" data-reveal>
+        <div class="disease-img-wrap">
+          <img src="{{ url_for('static', filename='img/mosaic.jpeg') }}" alt="Mosaic virus"/>
+          <div class="disease-sev sev-low">Low Risk</div>
+        </div>
+        <div class="disease-info">
+          <div class="disease-type">Viral Disease</div>
+          <h4>Mosaic Virus</h4>
+          <p>Mottled yellow-green patterns on leaves caused by aphid-transmitted viral infection.</p>
+          <div class="disease-meta">
+            <span>Imidacloprid</span>
+            <span>Vector control</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT / TRUST ════════════════════════════════════ -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid" data-reveal>
+      <div class="about-img-stack">
+        <img class="ab-img-main" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Farmer"/>
+        <img class="ab-img-sec"  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80" alt="Plant"/>
+        <div class="ab-stat-badge">
+          <strong>50,000+</strong>
+          <span>Diagnoses Completed</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">About Plantify</span>
+        <h2>AI Expert Built for <em>Indonesian Farmers</em></h2>
+        <p>Plantify was developed to give every farmer and grower access to expert-level plant disease diagnosis — instantly, from their mobile phone. No agronomist required.</p>
+        <p>Our model is trained on Indonesian agricultural datasets covering dozens of common crops including chili, tomato, potato, rice, and corn.</p>
+        <div class="about-checklist">
+          <div class="ab-check">
+            <div class="ab-check-dot"></div>
+            Real-time AI image analysis
+          </div>
+          <div class="ab-check">
+            <div class="ab-check-dot"></div>
+            Recommendations in Bahasa Indonesia
+          </div>
+          <div class="ab-check">
+            <div class="ab-check-dot"></div>
+            Works on low-bandwidth connections
+          </div>
+          <div class="ab-check">
+            <div class="ab-check-dot"></div>
+            No registration required
+          </div>
+        </div>
+        <a href="#detector" class="btn-primary">Try It Free Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top-border"></div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">Plant<span>ify</span></a>
+        <p>AI-powered plant disease identification system for Indonesian farmers and agricultural professionals.</p>
+        <div class="footer-badge">
+          <div class="pulse-dot sm"></div>
+          Powered by OpenRouter AI
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#detector">AI Detector</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#diseases">Disease Library</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Detected Crops</h4>
+        <ul class="footer-links">
+          <li><a href="#">Chili &amp; Pepper</a></li>
+          <li><a href="#">Tomato</a></li>
+          <li><a href="#">Potato</a></li>
+          <li><a href="#">Rice</a></li>
+          <li><a href="#">Corn</a></li>
+          <li><a href="#">Cassava</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Disclaimer</h4>
+        <p class="footer-disclaimer">Recommendations provided by Plantify are informational and intended as a first guide only. Always consult a local agricultural extension officer for final treatment decisions.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 <span>Plantify</span> — All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -6,9 +6,12 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024  # 10MB max upload
 
-# ==========================isi API KEY==================================
-OPENROUTER_API_KEY = ""
-# ============================================================
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 # Model gratis dengan vision — otomatis pilih model gratis yang tersedia
 # Jika satu gagal, ganti ke model berikutnya di daftar ini:
